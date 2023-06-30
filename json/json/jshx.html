@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>JS在线加密工具，JS加密，JS混淆，JS混淆加密，JS不可逆加密，JS加密压缩- JSON.cn</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="HandheldFriendly" content="True"/>
+    <meta name="MobileOptimized" content="720"/>
+    <meta http-equiv="Cache-Control" content="max-age=3600"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="baidu-site-verification" content="mlJsiTNxiD"/>
+    <meta name="google-site-verification" content="CPogK9tQWL5XIDF9F9x_tJyy1HtpDI8Rv6owOEIkUvM"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all"/>
+    <meta name="author" content="json.cn"/>
+
+    <meta name="keywords" content="JS加密,JS混淆,JS混淆加密,JS不可逆加密,JS加密压缩,JavaScript在线加密,JavaScript加密后不可恢复,JS加密后不可恢复,在线JS加密,JS在线加密工具"/>
+    <meta name="description" content="提供JS加密，JS混淆，JS混淆加密，JS不可逆加密，JS加密压缩，JavaScript在线加密服务。通过JavaScript加密后不可恢复，及保护你前端JS的安全，又提高JS的运行效率"/>
+    <link rel="stylesheet" type="text/css" href="static/css/prettify.css"/>
+    <link rel="stylesheet" type="text/css" href="static/css/indexCodeMirror.min.css"/>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <style></style>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Favicons -->
+</head>
+<body style="overflow:hidden;">
+<header class="header">
+    <div class="row-fluid">
+        <div class="col-md-8 header-nav-list" style="position:relative;">
+            <a class="logo" href="../index.html">
+                Json.<span style="color:#4A5560;">cn</span></a>
+            <a class="custom-btn" href="../index.html" data-placement="bottom">在线解析</a>
+            <a class="custom-btn" href="jsonzip.html" data-placement="bottom">JSON压缩转义</a>
+            <a class="custom-btn active" href="jshx.html" data-placement="bottom">JS混淆加密</a>
+            <div class="dropdown">
+                <a type="button" class="dropdown-toggle custom-btn" id="dropdownMenu1"
+                   data-toggle="dropdown">
+                    JSON生成实体类
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                    <li role="presentation" >
+                        <a role="menuitem" tabindex="-1" href="json2java.html">JSON生成JAVA实体类</a>
+                    </li>
+                    <li role="presentation" class="divider"></li>
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="json2csharp.html">JSON生C#成实体类</a>
+                    </li>
+                </ul>
+            </div>
+            <a class="custom-btn" href="jsoncompare.html" data-placement="bottom">代码对比</a>
+
+        </div>
+        <nav class="col-md-4" style="padding:10px 0; " align="right">
+            <div class="navi">
+                <!--<a href="http://lab.json.cn/" target="_blank"  data-placement="bottom">
+                  <span class="red">JSON实验室</span>
+              </a>-->
+                <a href="../wiki.html" data-placement="bottom">什么是JSON</a>
+                <a href="../code.html" data-placement="bottom">JSON解析代码</a>
+                <a href="../component.html" data-placement="bottom">JSON组件</a>
+
+            </div>
+        </nav>
+        <br style="clear:both;"/>
+    </div>
+</header>
+
+<main class="row-fluid editor-con">
+    <div class="obfuscate-box">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-tab href="jshx.html#tabContent1">粘贴JavaScript代码</a></li>
+            <li><a data-tab href="jshx.html#tabContent2">加密JavaScript文件</a></li>
+            <li><a data-tab href="jshx.html#tabContent3">加密结果</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="tabContent1">
+                <div class="editor-box2">
+                    <!-- json编辑器 -->
+                    <div id="editor4">
+                        <textarea id="code4" placeholder="Code goes here..."></textarea>
+                        <div id="resize4">
+                            <i class="icon-bars"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- 功能 -->
+                <div style="margin-top: 15px;text-align: center">
+                    <button type="button" class="btn btn-primary" id="obfuscateJavascript" data-loading-text="加密中，请稍候...">JS混淆加密</button>
+                    <button type="button" class="btn btn-default" id="clearCode">清空</button>
+                </div>
+            </div>
+            <div class="tab-pane" id="tabContent2">
+                <div class="upload-js-file">
+                    <div class="jsfile-mask">拖拽JavaScript文件到虚框内,或者单击/双击读取JavaScript文件</div>
+                    <input type="file" id="uploadJsFile" accept="text/javascript, application/javascript">
+                </div>
+            </div>
+            <div class="tab-pane" id="tabContent3">
+                <div class="code-box" id="codeBox">
+                    <pre class="prettyprint linenums Lang-java" id="cBox"></pre>
+                    <div id="resizePre">
+                        <i class="icon-bars"></i>
+                    </div>
+                </div>
+                <!-- 功能 -->
+                <div style="margin-top: 15px;text-align: center">
+                    <button type="button" class="btn btn-success" id="downloadTextarea" data-suffix="js">下载加密代码</button>
+                    <button type="button" class="btn btn-success" id="copyTextarea">复制加密代码</button>
+                </div>
+            </div>
+        </div>
+        <!-- 校验结果 -->
+        <div class="with-icon" id="jsonlintBox">
+            <i class="fa fa-times" id="jsonlintIcon"></i>
+            <pre class="content" id="jsonlintResult">请贴入要加密的js代码</pre>
+        </div>
+    </div>
+
+
+    <!-- 配置 -->
+    <div class="obfuscate-setting" id="obfuscateSetting">
+        <h4>混淆加密配置<a href="jshxinfo.html" target="_blank" >配置说明</a></h4>
+        <hr style="margin-top: 10px;margin-bottom: 0px">
+        <div class="setting-item">
+            <p>一键配置</p>
+            <div class="setting-opation">
+                <button type="button" class="btn btn-default" id="lowObfuscate">低混淆，高性能</button>
+                <button type="button" class="btn btn-default" id="medObfuscate">中等混淆，最佳性能</button>
+                <button type="button" class="btn btn-default" id="highObfuscate">高度混淆，低性能</button>
+                <button type="button" class="btn btn-danger" id="resetObfuscate">重置</button>
+            </div>
+        </div>
+        <hr style="margin-bottom: 0">
+        <div class="setting-item2">
+            <div class="setting-type">
+                <div class="setting-opation2">
+                    <p>基础配置</p>
+                    <div class="checkbox"><label for="compact"><input type="checkbox" name="checkbox" id="compact" checked>压缩成一行</label></div>
+                    <hr>
+                    <div class="checkbox"><label for="renameGlobals"><input type="checkbox" name="checkbox" id="renameGlobals">方法变量重命名</label></div>
+                    <hr>
+                    <div class="b-small-padding">
+                        <p>标识符名称生成器</p>
+                        <select class="form-control" id="identifierNamesGenerator">
+                            <option value="hexadecimal">16进制</option>
+                            <option value="mangled">短字符</option>
+                        </select>
+                    </div>
+                    <hr>
+                    <div class="b-small-padding">
+                        <p>标识符前缀</p>
+                        <input type="text" name="input" class="form-control" id="identifiersPrefix" placeholder="可选">
+                    </div>
+                    <hr>
+                    <div class="b-mini-padding">
+                        <div class="checkbox"><label for="controlFlowFlattening"><input type="checkbox" name="checkbox"
+                                                                           id="controlFlowFlattening">防止格式化</label></div>
+                        <input type="number" name="input" class="form-control" id="controlFlowFlatteningThreshold"
+                               placeholder="格式化系数（0-1）" min="0" max="1" step="0.1" value="0.7">
+                    </div>
+                    <hr>
+                    <div class="b-mini-padding">
+                        <div class="checkbox"><label for="deadCodeInjection"><input type="checkbox" name="checkbox"
+                                                                           id="deadCodeInjection">花指令注入</label></div>
+                        <input type="number" name="input" class="form-control" id="deadCodeInjectionThreshold"
+                               placeholder="花指令注入率（0-1）" min="0" max="1" step="0.1" value="0.4">
+                    </div>
+                    <hr>
+                    <div class="b-small-padding">
+                        <p>目标运行环境</p>
+                        <select class="form-control" id="target">
+                            <option value="browser">浏览器</option>
+                            <option value="browser-no-eval">浏览器不输出执行</option>
+                        </select>
+                    </div>
+                    <p style="margin-top: 30px">字符串设置</p>
+                    <div class="checkbox"><label for="stringArray"><input type="checkbox" name="checkbox" id="stringArray" checked>字符串加密</label></div>
+                    <hr>
+                    <div class="b-mini-padding">
+                        <p>字符串编码</p>
+                        <select class="form-control" id="stringArrayEncoding">
+                            <option value="false">关闭</option>
+                            <option value="base64">Base64</option>
+                            <option value="rc4">RC4</option>
+                        </select>
+                    </div>
+                    <hr>
+                    <div class="b-mini-padding">
+                        <p>字符串加密系数</p>
+                        <input type="number" name="input" class="form-control" id="stringArrayThreshold"
+                               placeholder="（可选）" min="0" max="1" step="0.1" value="0.8">
+                    </div>
+                    <hr>
+                    <div class="checkbox"><label for="rotateStringArray"><input type="checkbox" name="checkbox" id="rotateStringArray">旋转字符串</label></div>
+                    <hr>
+                    <div class="checkbox"><label for="shuffleStringArray"><input type="checkbox" name="checkbox" id="shuffleStringArray">重排字符串</label></div>
+                    <hr>
+                    <div class="b-mini-padding">
+                        <div class="checkbox"><label for="splitStrings"><input type="checkbox" name="checkbox"
+                                                                           id="splitStrings">分割字符串</label></div>
+                        <input type="number" name="input" class="form-control" id="splitStringsChunkLength"
+                               placeholder="" min="0" step="1">
+                    </div>
+                    <hr>
+                    <div class="checkbox"><label for="transformObjectKeys"><input type="checkbox" name="checkbox" id="transformObjectKeys">变量加密</label></div>
+                    <hr>
+                    <div class="checkbox"><label for="unicodeEscapeSequence"><input type="checkbox" name="checkbox" id="unicodeEscapeSequence">Unicode转义序列</label>
+                    </div>
+                </div>
+                <div class="setting-opation2">
+                    <p>调试保护设置</p>
+                    <div class="checkbox"><label for="selfDefending"><input type="checkbox" name="checkbox" id="selfDefending">K保护</label></div>
+                    <hr>
+                    <div class="checkbox"><label for="debugProtection"><input type="checkbox" name="checkbox" id="debugProtection">调试保护</label></div>
+                    <hr>
+                    <div class="checkbox"><label for="disableConsoleOutput"><input type="checkbox" name="checkbox"
+                                                         id="disableConsoleOutput">禁用控制台输出</label>
+                    </div>
+                    <hr>
+                    <div class="checkbox"><label for="debugProtectionInterval"><input type="checkbox" name="checkbox"
+                                                         id="debugProtectionInterval">保护间隔</label></div>
+                </div>
+                <div class="setting-opation2">
+                    <p>过滤设置</p>
+                    <div>
+                        <p>锁定域名</p>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="json.cn" id="domainLock">
+                            <span class="input-group-addon" id="addDomain"><i class="fa fa-plus"></i></span>
+                        </div>
+                        <div class="label-box" id="domainLabelList">
+                        </div>
+                    </div>
+                    <hr>
+                    <div>
+                        <p>保留方法</p>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="json.cn" id="reservedNames">
+                            <span class="input-group-addon" id="addReservedNames"><i class="fa fa-plus"></i></span>
+                        </div>
+                        <div class="label-box" id="namesLabelList">
+                        </div>
+                    </div>
+                    <hr>
+                    <div>
+                        <p>保留字符串</p>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="json.cn" id="reservedStrings">
+                            <span class="input-group-addon" id="addReservedStrings"><i
+                                    class="fa fa-plus"></i></span>
+                        </div>
+                        <div class="label-box" id="stringsLabelList">
+                        </div>
+                    </div>
+                </div>
+                <div class="setting-opation2 no-margin-r">
+                    <p>附加设置</p>
+                    <div class="b-mini-padding">
+                        <p>源码地图</p>
+                        <select class="form-control" id="sourceMapMode">
+                            <!--                            <option value="off">关闭</option>-->
+                            <option value="inline">内嵌</option>
+                            <option value="separate">分离</option>
+                        </select>
+                    </div>
+                    <hr>
+                    <div class="b-mini-padding">
+                        <p>源码地图地址</p>
+                        <input type="text" name="input" class="form-control" id="sourceMapBaseUrl"
+                               placeholder="http://json.cn/">
+                    </div>
+                    <hr>
+                    <div class="b-mini-padding">
+                        <p>源码地图文件名</p>
+                        <input type="text" name="input" class="form-control" id="sourceMapFileName"
+                               placeholder="jsonFile">
+                    </div>
+                    <hr>
+                    <div class="b-mini-padding">
+                        <p>标识种子ID</p>
+                        <input type="number" name="input" class="form-control" id="seed" placeholder="0" value="0">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <textarea style="display: none" id="storeEncode"></textarea>
+    <input type="hidden" id="evalHidden" value="0"/>
+</main>
+<script src="static/js/global.min.js"></script>
+<!-- 编辑器组件 -->
+<script src="static/js/indexCodeMirror.min.js" type="text/javascript" charset="utf-8"></script>
+<!--代码助手-->
+<script src="static/js/prettify.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="static/js/component/enc/javascript-obfuscator.js" type="text/javascript" charset="utf-8"></script>
+<script src="static/js/component/enc/obfuscatorEnc.js" type="text/javascript" charset="utf-8"></script>
+<script src="static/js/FileSaver.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    //根据DOM元素的id构造出一个编辑器================================================================================================================================================================================================
+    var editor = CodeMirror.fromTextArea(document.getElementById("code4"), {
+        mode: "application/javascript", //设置json模式
+        lineNumbers: true, //是否显示左边换行术字
+        lineWrapping: false, //是否折叠
+        foldGutter: true,
+        gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"]
+    });
+</script>
+
+<div class="load-gg">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- json.cn底部 -->
+    <ins class="adsbygoogle"
+         style="display:inline-block;width:970px;height:90px"
+         data-ad-client="ca-pub-1130438465287629"
+         data-ad-slot="1989361871"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+<footer style="text-align:center;color:#aaa;font-family: Tahoma,'微软雅黑';font-size: 14px;margin-top: 0">
+    <div style="padding:10px;display: inline-block">
+        <a href="../privacy.html" style="margin-right:20px;">隐私保护</a>
+        <a href="../right.html" style="margin-right:20px;">权利保护</a>
+    </div>
+    <div style="display: inline-block">© 2014 - 2019 Json.cn All right reserved.</div>
+</footer>
+
+</body>
+</html>

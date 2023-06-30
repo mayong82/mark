@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>JSON压缩转义 | JSON转义 | JSON压缩 |JSON压缩转义工具 - JSON.cn</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="HandheldFriendly" content="True"/>
+    <meta name="MobileOptimized" content="720"/>
+    <meta http-equiv="Cache-Control" content="max-age=3600"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="baidu-site-verification" content="mlJsiTNxiD"/>
+    <meta name="google-site-verification" content="CPogK9tQWL5XIDF9F9x_tJyy1HtpDI8Rv6owOEIkUvM"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all"/>
+    <meta name="author" content="json.cn"/>
+
+    <meta name="keywords" content="json,在线json,json压缩,json转义,json在线解析,json格式化,json格式验证,json转xml,xml转json,在线json格式化工具,json 格式化,json格式化工具,json字符串格式化,json 在线查看器,json在线,json 在线验证,json tools online"/>
+    <meta name="description" content="json,在线json,json压缩,json转义,json在线解析,json格式化,json格式验证,json转xml,xml转json,在线json格式化工具,json 格式化,json格式化工具,json字符串格式化,json 在线查看器,json在线,json 在线验证,json tools online"/>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <style></style>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Favicons -->
+</head>
+<body style="overflow:hidden;">
+<header class="header">
+    <div class="row-fluid">
+        <div class="col-md-8 header-nav-list" style="position:relative;">
+            <a class="logo" href="../index.html">
+                Json.<span style="color:#4A5560;">cn</span></a>
+            <a class="custom-btn" href="../index.html" data-placement="bottom">在线解析</a>
+            <a class="custom-btn active" href="jsonzip.html" data-placement="bottom">JSON压缩转义</a>
+            <a class="custom-btn" href="jshx.html" data-placement="bottom">JS混淆加密</a>
+            <div class="dropdown">
+                <a type="button" class="dropdown-toggle custom-btn" id="dropdownMenu1"
+                   data-toggle="dropdown">
+                    JSON生成实体类
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                    <li role="presentation" >
+                        <a role="menuitem" tabindex="-1" href="json2java.html">JSON生成JAVA实体类</a>
+                    </li>
+                    <li role="presentation" class="divider"></li>
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="json2csharp.html">JSON生C#成实体类</a>
+                    </li>
+                </ul>
+            </div>
+            <a class="custom-btn" href="jsoncompare.html" data-placement="bottom">代码对比</a>
+
+        </div>
+        <nav class="col-md-4" style="padding:10px 0; " align="right">
+            <div class="navi">
+                <!--<a href="http://lab.json.cn/" target="_blank"  data-placement="bottom">
+                  <span class="red">JSON实验室</span>
+              </a>-->
+                <a href="../wiki.html" data-placement="bottom">什么是JSON</a>
+                <a href="../code.html" data-placement="bottom">JSON解析代码</a>
+                <a href="../component.html" data-placement="bottom">JSON组件</a>
+
+            </div>
+        </nav>
+        <br style="clear:both;"/>
+    </div>
+</header>
+
+<main class="row-fluid editor-con">
+    <div id="aceEditor"></div>
+    <!-- 功能 -->
+    <div class="custom-btn-group">
+        <button type="button" class="btn btn-primary" id="compressEscapeJson">压缩并转义</button>
+        <button type="button" class="btn btn-default" id="compressZipJson">压缩</button>
+        <button type="button" class="btn btn-default" id="escapeJson">转义</button>
+        <button type="button" class="btn btn-default" id="restoreJson">去除转义</button>
+        <button type="button" class="btn btn-default" id="unicode2ch">Unicode转中文</button>
+        <button type="button" class="btn btn-default" id="ch2unicode">中文转Unicode</button>
+        <button type="button" class="btn btn-default" id="chSignToEn">中文符号转英文符号</button>
+        <button type="button" class="btn btn-default" id="clearCode">清空</button>
+        <button type="button" class="btn btn-success" id="copyJson">复制</button>
+        <button type="button" class="btn btn-success" id="downloadEditor">下载</button>
+    </div>
+</main>
+<script src="static/js/global.min.js"></script>
+<script src="static/js/component/ace/ace.js"></script>
+<script src="static/js/component/ace/ext-language_tools.js"></script>
+<!--下载-->
+<script src="static/js/FileSaver.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    //初始化ace
+    var editor = ace.edit('aceEditor');
+    editor.setTheme('ace/theme/github');
+    editor.session.setMode('ace/mode/json');
+    editor.setOptions({
+        enableBasicAutocompletion: true,
+        enableSnippets: true,
+        enableLiveAutocompletion: true,
+        fontSize: 14,
+        showPrintMargin: false
+    });
+</script>
+
+<div class="load-gg">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- json.cn底部 -->
+    <ins class="adsbygoogle"
+         style="display:inline-block;width:970px;height:90px"
+         data-ad-client="ca-pub-1130438465287629"
+         data-ad-slot="1989361871"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+<footer style="text-align:center;color:#aaa;font-family: Tahoma,'微软雅黑';font-size: 14px;margin-top: 0">
+    <div style="padding:10px;display: inline-block">
+        <a href="../privacy.html" style="margin-right:20px;">隐私保护</a>
+        <a href="../right.html" style="margin-right:20px;">权利保护</a>
+    </div>
+    <div style="display: inline-block">© 2014 - 2019 Json.cn All right reserved.</div>
+</footer>
+
+</body>
+</html>
